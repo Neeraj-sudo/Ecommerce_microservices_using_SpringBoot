@@ -1,0 +1,35 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: api-gateway
+  datasource:
+    url: jdbc:mysql://localhost:3306/prodstore?useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+zuul:
+  routes:
+    customer-service:
+     url: customer-service
+    product-service:
+     url: product-service
+    order-service:
+     url: order-service
+    store-service:
+     url:store-service
+    inventory-service:
+     url:inventory-service
+     
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+
+ 
